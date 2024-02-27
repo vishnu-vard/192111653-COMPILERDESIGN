@@ -1,19 +1,29 @@
-{
-	#include<stdio.h>
+%{
+
 %}
 
 %%
-[A-Z]+[\t\n ] { printf("%s",yytext); }
-.  ;
+
+[A-Z]+[ \t\n\.\,] {printf("%s",yytext);}
+
+.           ;
+
 %%
 
-main( ) 
+int main()
+
 {
-	printf("Enter some string with capital words in between\n");
-	yylex();
+
+printf("\n Enter some input with capital words in between:\n");
+
+yylex();
+
 }
 
-int yywrap( )
+int yywrap()
+
 {
-	return 1;
+
+return 1;
+
 }
